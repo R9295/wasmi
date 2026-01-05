@@ -17,12 +17,12 @@ endif()
 
 # If the Wasmi Rust crate shall be built using debug or release settings.
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(WASMI_BUILD_TYPE "debug")
+    set(CARGO_PROFILE_PANIC CARGO_PROFILE_DEBUG_PANIC)
+else()
     set(WASMI_BUILD_TYPE_FLAG "--profile" "bench")
     set(WASMI_BUILD_TYPE "release")
     set(CARGO_PROFILE_PANIC CARGO_PROFILE_RELEASE_PANIC)
-else()
-    set(WASMI_BUILD_TYPE "debug")
-    set(CARGO_PROFILE_PANIC CARGO_PROFILE_DEBUG_PANIC)
 endif()
 
 # Sets the Wasmi target directory.
